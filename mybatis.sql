@@ -9,14 +9,13 @@ create table blog
     id         INT PRIMARY KEY AUTO_INCREMENT,
     content    varchar(45),
     authorId   int,
-    authorName varchar(45),
-    coAuthorId int comment '第二作者的id'
+    authorName varchar(45)
 ) comment '博客表';
-insert into blog (content, authorId, authorName, coAuthorId)
-values ('content11', 1, 'zhang', null),
-       ('content12', 1, 'zhang', 2),
-       ('content2', 2, 'wang', null),
-       ('content3', 3, 'li', 1);
+insert into blog (content, authorId, authorName)
+values ('content11', 1, 'zhang'),
+       ('content12', 1, 'zhang'),
+       ('content2', 2, 'wang'),
+       ('content3', 3, 'li');
 
 drop table if exists author;
 create table author
