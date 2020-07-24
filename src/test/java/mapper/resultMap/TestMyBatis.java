@@ -35,13 +35,15 @@ public class TestMyBatis {
             BlogMapper blogMapper = sqlSession.getMapper(BlogMapper.class);
 
             Blog resBlog;
-            resBlog=blogMapper.selectById(1);
+            resBlog = blogMapper.selectById(1);
             System.out.println(resBlog);
             System.out.println(resBlog.getAuthorNameObj());
 
-            resBlog=blogMapper.selectByIdWithConstructor(1);
+            resBlog = blogMapper.selectByIdWithConstructor(1);
             System.out.println(resBlog);
 
+            resBlog = blogMapper.selectByIdWithOnlyConstructor(1);
+            System.out.println(resBlog);
             resBlog=blogMapper.selectByIdWithAssociation(1);
             System.out.println(resBlog.getAuthorObj());
 
@@ -84,7 +86,9 @@ public class TestMyBatis {
 Blog{id=1, content='content11', authorId=1, authorName='zhang'}
 我是：AuthorName{name='zhang'}
 带参构造函数调用
-Blog{id=1, content='content11', authorId=0, authorName='null'}
+Blog{id=1, content='content11', authorId=1, authorName='zhang'}
+带参构造函数调用
+Blog{id=1, content='content11', authorId=1, authorName='zhang'}
 Author{id=1, name='zhang', age=0.0, sexType=0, sex='null'}
 Author{id=1, name='zhang', age=18.5, sexType=0, sex='MALE'}
 Author{id=1, name='zhang', age=0.0, sexType=0, sex='null'}

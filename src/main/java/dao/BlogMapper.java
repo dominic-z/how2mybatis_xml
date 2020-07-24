@@ -17,6 +17,7 @@ public interface BlogMapper {
     void insertBlogArr(Blog[] blogs);
 
     Blog selectByIdWithConstructor(int id);
+    Blog selectByIdWithOnlyConstructor(int id);
     Blog selectByIdWithAssociation(int id);
     Author selectAuthorById(int id);
     Blog selectByIdWithNestedSelectAssociation(int id);

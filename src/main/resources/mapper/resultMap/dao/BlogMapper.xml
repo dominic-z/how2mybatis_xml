@@ -23,11 +23,23 @@
             <idArg column="_id" javaType="_int" name="id"/>
             <arg column="_content" name="content" javaType="String"/>
         </constructor>
-        <result property="authorId" column="authorId"/>
-        <result property="authorName" column="authorName"/>
+        <result property="authorId" column="_authorId"/>
+        <result property="authorName" column="_authorName"/>
     </resultMap>
     <select id="selectByIdWithConstructor" resultMap="blogMapConstructor">
         select id as _id, content as _content, authorId as _authorId, authorName as _authorName
+        from blog
+        where id = #{id};
+    </select>
+
+    <resultMap id="blogMapOnlyConstructor" type="blog">
+        <constructor>
+            <idArg column="_id" javaType="_int" name="id"/>
+            <arg column="_content" name="content" javaType="String"/>
+        </constructor>
+    </resultMap>
+    <select id="selectByIdWithOnlyConstructor" resultMap="blogMapOnlyConstructor">
+        select id as _id, content as _content, authorId as authorId, authorName as authorName
         from blog
         where id = #{id};
     </select>
